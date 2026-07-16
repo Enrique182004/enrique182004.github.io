@@ -8,327 +8,353 @@
 <meta property="og:title" content="Enrique Calleros — Full-Stack Developer" />
 <meta property="og:description" content="Web apps, AI/RAG tools, and games — with live demos you can open in one click." />
 <meta property="og:url" content="https://enrique182004.github.io" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23161310'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23f7f3ea' font-family='Georgia'>EC</text></svg>" />
+<meta property="og:image" content="https://enrique182004.github.io/assets/codecore.jpg" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c5cff'/><stop offset='1' stop-color='%2300d4ff'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='url(%23g)'/><text x='50' y='70' font-size='54' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>EC</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --paper:#f6f2e9;
-  --paper-deep:#efe9dc;
-  --ink:#171310;
-  --ink-soft:#4c443a;
-  --muted:#877d6e;
-  --rule:#d9d1c0;
-  --accent:#2b3cf3;
-  --accent-ink:#1f2cba;
-  --serif:'Fraunces',Georgia,serif;
-  --sans:'Instrument Sans',Helvetica,sans-serif;
-  --step--1:clamp(.8rem,.76rem + .2vw,.9rem);
-  --step-0:clamp(1rem,.95rem + .25vw,1.1rem);
-  --step-1:clamp(1.2rem,1.1rem + .5vw,1.5rem);
-  --step-2:clamp(1.6rem,1.35rem + 1.2vw,2.4rem);
-  --step-3:clamp(2.6rem,1.8rem + 4vw,5.2rem);
+  --bg:#07080d;
+  --bg2:#0b0d15;
+  --card:rgba(255,255,255,.035);
+  --card-hover:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.09);
+  --line-bright:rgba(255,255,255,.18);
+  --text:#eceef6;
+  --muted:#98a0b3;
+  --violet:#7c5cff;
+  --cyan:#00d4ff;
+  --pink:#ff4ecd;
+  --grad:linear-gradient(100deg,#7c5cff,#00d4ff 55%,#ff4ecd 120%);
+  --display:'Syne',sans-serif;
+  --body:'Manrope',sans-serif;
+  --s0:clamp(.98rem,.93rem + .25vw,1.08rem);
+  --s1:clamp(1.15rem,1.05rem + .5vw,1.4rem);
+  --s2:clamp(1.7rem,1.4rem + 1.4vw,2.6rem);
+  --s3:clamp(2.7rem,1.9rem + 4.2vw,5.4rem);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--sans);
-  font-size:var(--step-0);
-  line-height:1.6;
-}
-body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.35;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  background:var(--bg);color:var(--text);
+  font-family:var(--body);font-size:var(--s0);line-height:1.65;
+  overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-::selection{background:var(--accent);color:var(--paper)}
-.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(1.2rem,4.5vw,3rem)}
+a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+::selection{background:var(--violet);color:#fff}
+img{display:block;max-width:100%}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(1.2rem,4.5vw,3rem)}
 
-/* ---------- header ---------- */
-.topbar{border-bottom:1px solid var(--rule);position:sticky;top:0;background:rgba(246,242,233,.9);backdrop-filter:blur(8px);z-index:50}
-.topbar-inner{display:flex;justify-content:space-between;align-items:center;height:64px}
-.wordmark{font-family:var(--serif);font-weight:600;font-size:1.15rem;letter-spacing:-.01em}
-.wordmark em{font-style:italic;color:var(--accent)}
-.top-nav{display:flex;gap:clamp(1rem,3vw,2.2rem);font-size:.88rem;font-weight:500}
-.top-nav a{padding:.6rem 0;color:var(--ink-soft);border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
-.top-nav a:hover{color:var(--ink);border-color:var(--accent)}
+/* ambient orbs */
+.orbs{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 70% -10%,#11142a 0%,var(--bg) 60%)}
+.orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.5;animation:drift 22s ease-in-out infinite alternate}
+.orb-a{width:520px;height:520px;background:#3c2e8f;top:-180px;left:-140px}
+.orb-b{width:460px;height:460px;background:#083d52;bottom:-160px;right:-120px;animation-delay:-11s}
+.orb-c{width:300px;height:300px;background:#5c1f4d;top:38%;left:58%;opacity:.35;animation-delay:-6s}
+@keyframes drift{to{transform:translate(60px,40px) scale(1.12)}}
 
-/* ---------- hero ---------- */
-.hero{padding:clamp(3.5rem,10vh,7rem) 0 clamp(3rem,8vh,5rem);border-bottom:1px solid var(--rule)}
-.kicker{display:flex;align-items:center;gap:.7rem;font-size:.8rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:1.6rem}
-.kicker::before{content:"";width:2.4rem;height:1px;background:var(--accent)}
+/* nav */
+nav{position:sticky;top:0;z-index:60;background:rgba(7,8,13,.7);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.2rem;letter-spacing:-.02em}
+.logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;gap:clamp(.9rem,2.6vw,2rem);font-size:.9rem;font-weight:600}
+.nav-links a{color:var(--muted);padding:.6rem .2rem;transition:color .15s}
+.nav-links a:hover{color:#fff}
+.nav-cta{display:inline-flex;align-items:center;border:1px solid var(--line-bright);border-radius:999px;padding:.45rem 1.1rem;font-size:.85rem;font-weight:700;transition:border-color .15s,background .15s}
+.nav-cta:hover{border-color:var(--cyan);background:rgba(0,212,255,.08)}
+
+/* hero */
+.hero{padding:clamp(4rem,12vh,8rem) 0 clamp(3rem,8vh,5rem);text-align:center}
+.pill{
+  display:inline-flex;align-items:center;gap:.55rem;
+  border:1px solid var(--line-bright);border-radius:999px;
+  padding:.45rem 1.1rem;font-size:.82rem;font-weight:600;color:var(--muted);
+  background:rgba(255,255,255,.03);
+}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 10px #3ddc84;animation:blip 2s ease-in-out infinite}
+@keyframes blip{50%{opacity:.4}}
 h1{
-  font-family:var(--serif);font-weight:560;
-  font-size:var(--step-3);line-height:1.02;letter-spacing:-.025em;
-  max-width:15ch;
+  font-family:var(--display);font-weight:800;
+  font-size:var(--s3);line-height:1.04;letter-spacing:-.03em;
+  margin:1.6rem auto 0;max-width:17ch;
 }
-h1 em{font-style:italic;font-weight:420;color:var(--accent)}
-.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:end;margin-top:2.4rem}
-.lede{font-size:var(--step-1);line-height:1.55;color:var(--ink-soft);max-width:34ch}
-.lede strong{color:var(--ink);font-weight:600}
-.hero-aside{display:flex;flex-direction:column;gap:1.05rem;font-size:.92rem}
-.fact{display:grid;grid-template-columns:92px 1fr;gap:1rem;padding-bottom:1.05rem;border-bottom:1px solid var(--rule)}
-.fact dt{color:var(--muted);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding-top:.15rem}
-.fact dd a{border-bottom:1px solid var(--rule);transition:border-color .15s,color .15s}
-.fact dd a:hover{color:var(--accent);border-color:var(--accent)}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.6rem}
-.cta{
-  display:inline-flex;align-items:center;gap:.6rem;min-height:48px;
-  padding:.75rem 1.6rem;border-radius:999px;
-  font-weight:600;font-size:.92rem;
-  border:1px solid var(--ink);
-  transition:transform .18s,background .18s,color .18s,border-color .18s,box-shadow .18s;
+h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:52ch;margin:1.5rem auto 0;color:var(--muted);font-size:var(--s1);font-weight:500}
+.sub b{color:var(--text)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2.6rem}
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:.6rem;min-height:52px;
+  padding:.85rem 1.8rem;border-radius:14px;font-weight:700;font-size:.98rem;
+  transition:transform .18s,box-shadow .18s,background .18s,border-color .18s;
 }
-.cta:hover{transform:translateY(-2px)}
-.cta:active{transform:translateY(0)}
-.cta-solid{background:var(--ink);color:var(--paper)}
-.cta-solid:hover{background:var(--accent);border-color:var(--accent);box-shadow:0 10px 26px -12px rgba(43,60,243,.55)}
-.cta-ghost:hover{border-color:var(--accent);color:var(--accent)}
-.cta .arr{transition:transform .18s}
-.cta:hover .arr{transform:translateX(3px)}
+.btn:hover{transform:translateY(-3px)}
+.btn:active{transform:translateY(-1px)}
+.btn-grad{background:var(--grad);color:#fff;box-shadow:0 12px 34px -12px rgba(124,92,255,.65)}
+.btn-grad:hover{box-shadow:0 18px 44px -12px rgba(0,212,255,.55)}
+.btn-ghost{border:1px solid var(--line-bright);background:rgba(255,255,255,.03);color:var(--text)}
+.btn-ghost:hover{border-color:var(--violet);background:rgba(124,92,255,.1)}
+.hero-stats{display:flex;justify-content:center;gap:clamp(1.8rem,6vw,4.5rem);margin-top:3.4rem;flex-wrap:wrap}
+.hs .n{font-family:var(--display);font-weight:800;font-size:var(--s2);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hs .l{font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
-/* load stagger */
-.rise{opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.2,.7,.25,1) forwards}
+/* load + scroll reveal */
+.rise{opacity:0;transform:translateY(18px);animation:rise .7s cubic-bezier(.2,.7,.25,1) forwards}
 @keyframes rise{to{opacity:1;transform:none}}
-.d1{animation-delay:.05s}.d2{animation-delay:.14s}.d3{animation-delay:.23s}.d4{animation-delay:.32s}.d5{animation-delay:.45s}
+.d1{animation-delay:.05s}.d2{animation-delay:.16s}.d3{animation-delay:.27s}.d4{animation-delay:.38s}.d5{animation-delay:.52s}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.2,.7,.25,1),transform .6s cubic-bezier(.2,.7,.25,1)}
+.rv.in{opacity:1;transform:none}
 
-/* ---------- marquee strip ---------- */
-.strip{border-bottom:1px solid var(--rule);background:var(--ink);color:var(--paper);overflow:hidden;padding:.7rem 0}
-.strip-track{display:flex;gap:3rem;white-space:nowrap;font-size:.82rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;animation:marquee 30s linear infinite;width:max-content}
-.strip-track span::after{content:"✦";margin-left:3rem;color:var(--accent);filter:brightness(1.6)}
-@keyframes marquee{to{transform:translateX(-50%)}}
-
-/* ---------- sections ---------- */
+/* sections */
 section{padding:clamp(3.2rem,9vh,5.5rem) 0}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:.8rem}
-.sec-num{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:var(--step-1)}
-h2{font-family:var(--serif);font-weight:560;font-size:var(--step-2);letter-spacing:-.02em}
-.sec-title{display:flex;align-items:baseline;gap:1rem}
-.sec-sub{color:var(--muted);max-width:56ch;margin-bottom:2.6rem}
+.sec-kick{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:.7rem}
+h2{font-family:var(--display);font-weight:800;font-size:var(--s2);letter-spacing:-.02em}
+.sec-sub{color:var(--muted);max-width:58ch;margin:.8rem 0 2.6rem;font-weight:500}
 
-/* ---------- live demo cards ---------- */
-.demo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.2rem}
-.demo-card{
-  position:relative;display:flex;flex-direction:column;
-  background:#fffdf7;border:1px solid var(--rule);border-radius:14px;
-  padding:1.6rem 1.6rem 1.35rem;
-  transition:transform .2s,box-shadow .2s,border-color .2s;
+/* demo cards with screenshots */
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.4rem}
+.dcard{
+  position:relative;display:flex;flex-direction:column;overflow:hidden;
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  transition:transform .22s,border-color .22s,background .22s,box-shadow .22s;
 }
-.demo-card:hover{transform:translateY(-4px);border-color:#c8bfa9;box-shadow:0 18px 40px -20px rgba(23,19,16,.28)}
-.demo-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
-.demo-num{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--muted)}
-.live-pill{
+.dcard:hover{transform:translateY(-6px);border-color:var(--line-bright);background:var(--card-hover);box-shadow:0 24px 60px -24px rgba(124,92,255,.4)}
+.thumb{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line)}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.dcard:hover .thumb img{transform:scale(1.06)}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,8,13,.55));pointer-events:none}
+.live-tag{
+  position:absolute;top:.9rem;left:.9rem;z-index:2;
   display:inline-flex;align-items:center;gap:.45rem;
-  font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-  color:#0d7a3f;background:#e5f3e5;border:1px solid #bfdec4;border-radius:999px;
-  padding:.3em .8em;
+  font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;
+  background:rgba(7,8,13,.72);backdrop-filter:blur(6px);
+  border:1px solid rgba(61,220,132,.5);border-radius:999px;padding:.32em .85em;
 }
-.live-pill .dot{width:7px;height:7px;border-radius:50%;background:#18a15a;animation:breath 2.2s ease-in-out infinite}
-@keyframes breath{50%{opacity:.35}}
-.demo-card h3{font-family:var(--serif);font-weight:600;font-size:1.35rem;letter-spacing:-.015em;margin-bottom:.55rem}
-.demo-card p{font-size:var(--step--1);color:var(--ink-soft);flex:1}
-.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.1rem 0 1.3rem}
-.chip{font-size:.72rem;font-weight:500;color:var(--ink-soft);background:var(--paper-deep);border-radius:999px;padding:.28em .8em}
-.demo-actions{display:flex;gap:.8rem}
+.live-tag .dot{width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 8px #3ddc84;animation:blip 2s ease-in-out infinite}
+.dbody{display:flex;flex-direction:column;flex:1;padding:1.3rem 1.4rem 1.4rem}
+.dbody h3{font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:-.01em;margin-bottom:.4rem}
+.dbody p{font-size:.9rem;color:var(--muted);flex:1;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:1rem 0 1.2rem}
+.chip{font-size:.72rem;font-weight:700;color:#c3c9da;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:999px;padding:.28em .8em}
+.dacts{display:flex;gap:.7rem}
 .mini{
-  display:inline-flex;align-items:center;gap:.45rem;min-height:44px;
-  font-size:.85rem;font-weight:600;padding:.55rem 1.15rem;border-radius:999px;
-  transition:transform .15s,background .15s,color .15s,border-color .15s;
+  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:44px;flex:1;
+  font-size:.88rem;font-weight:700;padding:.55rem 1rem;border-radius:11px;
+  transition:transform .15s,box-shadow .15s,background .15s,border-color .15s;
 }
-.mini:hover{transform:translateY(-1px)}
-.mini-solid{background:var(--accent);color:#fff}
-.mini-solid:hover{background:var(--accent-ink)}
-.mini-line{border:1px solid var(--rule);color:var(--ink-soft)}
-.mini-line:hover{border-color:var(--ink);color:var(--ink)}
+.mini:hover{transform:translateY(-2px)}
+.mini-grad{background:var(--grad);color:#fff;box-shadow:0 8px 22px -10px rgba(124,92,255,.6)}
+.mini-line{border:1px solid var(--line-bright);color:var(--muted)}
+.mini-line:hover{border-color:#fff;color:#fff}
 
-/* ---------- work list ---------- */
-.work-list{border-top:1px solid var(--rule)}
-.work-row{
-  display:grid;grid-template-columns:minmax(190px,1.1fr) 2fr minmax(150px,.9fr) 34px;
-  gap:1.4rem;align-items:center;
-  padding:1.35rem .4rem;border-bottom:1px solid var(--rule);
-  transition:background .15s,padding .2s;
+/* code projects */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem}
+.pcard{
+  position:relative;display:flex;flex-direction:column;
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:1.5rem 1.5rem 1.35rem;overflow:hidden;
+  transition:transform .2s,border-color .2s,background .2s;
 }
-.work-row:hover{background:#fffdf7;padding-left:1rem}
-.work-name{font-family:var(--serif);font-weight:600;font-size:1.18rem;letter-spacing:-.01em}
-.work-desc{font-size:var(--step--1);color:var(--ink-soft)}
-.work-tech{font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.work-arr{font-size:1.15rem;color:var(--muted);transition:transform .18s,color .18s;text-align:right}
-.work-row:hover .work-arr{transform:translateX(4px);color:var(--accent)}
-.work-links{display:flex;gap:.9rem;font-size:.85rem;font-weight:600}
-.work-links a{color:var(--accent);border-bottom:1px solid transparent}
-.work-links a:hover{border-color:var(--accent)}
-
-/* ---------- skills ---------- */
-#skills{background:var(--paper-deep);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.skill-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2.2rem}
-.skill-col h3{font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
-.skill-col ul{list-style:none}
-.skill-col li{padding:.5rem 0;border-bottom:1px solid var(--rule);font-size:.95rem}
-.skill-col li:last-child{border-bottom:none}
-
-/* ---------- about ---------- */
-.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(2rem,6vw,5rem)}
-.about-note{font-family:var(--serif);font-style:italic;font-size:var(--step-1);line-height:1.5;color:var(--ink-soft)}
-.about-body p{margin-bottom:1.1rem;color:var(--ink-soft)}
-.about-body strong{color:var(--ink);font-weight:600}
-.about-body a{color:var(--accent);font-weight:600;border-bottom:1px solid transparent}
-.about-body a:hover{border-color:var(--accent)}
-
-/* ---------- footer ---------- */
-footer{background:var(--ink);color:var(--paper);padding:clamp(3rem,8vh,5rem) 0 2.5rem}
-.foot-cta{font-family:var(--serif);font-weight:560;font-size:var(--step-2);letter-spacing:-.02em;max-width:22ch;line-height:1.15}
-.foot-cta em{font-style:italic;color:#8f9bff}
-.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem;align-items:center;margin-top:2.6rem;padding-top:1.8rem;border-top:1px solid rgba(246,242,233,.18)}
-.foot-links{display:flex;gap:1.8rem;font-size:.9rem;font-weight:500}
-.foot-links a{color:rgba(246,242,233,.75);padding:.5rem 0;transition:color .15s}
-.foot-links a:hover{color:#fff}
-.foot-note{font-size:.78rem;color:rgba(246,242,233,.45)}
-.email-big{
-  display:inline-block;margin-top:1.6rem;font-size:var(--step-1);font-weight:600;color:#fff;
-  border-bottom:2px solid var(--accent);padding-bottom:.15rem;transition:color .15s;
+.pcard::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--grad);opacity:0;transition:opacity .2s;
 }
-.email-big:hover{color:#8f9bff}
+.pcard:hover{transform:translateY(-5px);border-color:var(--line-bright);background:var(--card-hover)}
+.pcard:hover::before{opacity:1}
+.picon{
+  width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  font-size:1.35rem;margin-bottom:1rem;
+  background:linear-gradient(135deg,rgba(124,92,255,.22),rgba(0,212,255,.14));
+  border:1px solid rgba(124,92,255,.35);
+}
+.pcard h3{font-family:var(--display);font-weight:700;font-size:1.18rem;margin-bottom:.4rem}
+.pcard p{font-size:.88rem;color:var(--muted);flex:1;font-weight:500}
+.plinks{display:flex;gap:1.1rem;margin-top:1.1rem;font-size:.86rem;font-weight:700}
+.plinks a{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem 0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.plinks a:hover{filter:brightness(1.3)}
 
-@media (max-width:760px){
-  .hero-grid,.about-grid{grid-template-columns:1fr}
-  .work-row{grid-template-columns:1fr 34px;row-gap:.4rem}
-  .work-desc{grid-column:1/-1}
-  .work-tech{grid-column:1/-1}
-  .top-nav{gap:.9rem;font-size:.78rem}
+/* skills */
+.skill-wrap{display:flex;flex-direction:column;gap:1.6rem}
+.srow{display:grid;grid-template-columns:180px 1fr;gap:1.4rem;align-items:start;padding:1.4rem;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.srow h3{font-family:var(--display);font-weight:700;font-size:1rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.spills{display:flex;flex-wrap:wrap;gap:.55rem}
+.spill{font-size:.85rem;font-weight:600;color:#d4d9e6;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:.42em 1em;transition:border-color .15s,background .15s,transform .15s}
+.spill:hover{border-color:var(--violet);background:rgba(124,92,255,.12);transform:translateY(-2px)}
+
+/* about */
+.about-card{
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:center;
+  background:linear-gradient(135deg,rgba(124,92,255,.1),rgba(0,212,255,.05) 55%,rgba(255,78,205,.07));
+  border:1px solid var(--line-bright);border-radius:24px;
+  padding:clamp(1.8rem,5vw,3.2rem);
+}
+.avatar{
+  width:clamp(96px,14vw,148px);height:clamp(96px,14vw,148px);border-radius:50%;
+  background:var(--grad);display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:800;font-size:clamp(2rem,4vw,3rem);color:#fff;
+  box-shadow:0 16px 44px -14px rgba(124,92,255,.7);
+}
+.about-body p{color:var(--muted);font-weight:500;margin-bottom:1rem}
+.about-body p:last-child{margin-bottom:0}
+.about-body b{color:var(--text)}
+.about-body a{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+
+/* footer */
+footer{padding:clamp(3.5rem,10vh,6rem) 0 2.6rem;text-align:center;border-top:1px solid var(--line);margin-top:2rem}
+.f-title{font-family:var(--display);font-weight:800;font-size:var(--s2);letter-spacing:-.02em}
+.f-title .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.f-mail{
+  display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;min-height:52px;
+  padding:.85rem 1.9rem;border-radius:14px;font-weight:700;
+  background:var(--grad);color:#fff;box-shadow:0 12px 34px -12px rgba(124,92,255,.65);
+  transition:transform .18s,box-shadow .18s;
+}
+.f-mail:hover{transform:translateY(-3px);box-shadow:0 18px 44px -12px rgba(0,212,255,.55)}
+.f-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.f-row a{color:var(--muted);font-weight:600;padding:.4rem .6rem;transition:color .15s}
+.f-row a:hover{color:#fff}
+
+@media (max-width:700px){
+  .srow{grid-template-columns:1fr;gap:.8rem}
+  .about-card{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .nav-links{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .rise{opacity:1;transform:none}
+  .rise,.rv{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
+<div class="orbs" aria-hidden="true"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orb orb-c"></div></div>
 
-<div class="topbar">
-  <div class="wrap topbar-inner">
-    <a class="wordmark" href="#top">Enrique <em>Calleros</em></a>
-    <nav class="top-nav" aria-label="Main">
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="#top">enrique<b>.dev</b></a>
+    <div class="nav-links">
       <a href="#live">Live demos</a>
-      <a href="#work">Projects</a>
+      <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#about">About</a>
-    </nav>
+    </div>
+    <a class="nav-cta" href="mailto:ecalleros4@miners.utep.edu">Contact</a>
   </div>
-</div>
+</nav>
 
 <header class="hero" id="top">
   <div class="wrap">
-    <p class="kicker rise d1">Portfolio — El Paso, TX</p>
-    <h1 class="rise d2">Full-stack developer who <em>ships things</em> you can try.</h1>
-    <div class="hero-grid">
-      <p class="lede rise d3">I'm Enrique — a Computer Science student at <strong>UTEP</strong> building <strong>web apps</strong>, <strong>AI &amp; RAG tools</strong>, and <strong>games</strong>. Seven of my projects are live right now; the rest are open source below.</p>
-      <dl class="hero-aside rise d4">
-        <div class="fact"><dt>School</dt><dd>The University of Texas at El Paso</dd></div>
-        <div class="fact"><dt>Focus</dt><dd>Full-stack web · AI/RAG · community</dd></div>
-        <div class="fact"><dt>GitHub</dt><dd><a href="https://github.com/Enrique182004" target="_blank" rel="noopener">@Enrique182004</a></dd></div>
-      </dl>
+    <span class="pill rise d1"><span class="dot"></span>Open to internships &amp; collabs</span>
+    <h1 class="rise d2">I build things for the web — <span class="grad">and you can try them.</span></h1>
+    <p class="sub rise d3">Hey, I'm <b>Enrique Calleros</b> — full-stack developer &amp; CS student at <b>UTEP</b>. From <b>AI-powered RAG apps</b> to games and business sites, my work is live and one click away.</p>
+    <div class="hero-ctas rise d4">
+      <a class="btn btn-grad" href="#live">Explore live demos →</a>
+      <a class="btn btn-ghost" href="https://github.com/Enrique182004" target="_blank" rel="noopener">⭐ GitHub</a>
     </div>
-    <div class="hero-ctas rise d5">
-      <a class="cta cta-solid" href="#live">See the live demos <span class="arr">→</span></a>
-      <a class="cta cta-ghost" href="mailto:ecalleros4@miners.utep.edu">Get in touch</a>
+    <div class="hero-stats rise d5">
+      <div class="hs"><div class="n">18</div><div class="l">Repositories</div></div>
+      <div class="hs"><div class="n">7</div><div class="l">Live projects</div></div>
+      <div class="hs"><div class="n">9+</div><div class="l">Languages</div></div>
     </div>
   </div>
 </header>
 
-<div class="strip" aria-hidden="true">
-  <div class="strip-track">
-    <span>Java</span><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Flask</span><span>RAG pipelines</span><span>ChromaDB</span><span>Ollama</span><span>SQLite</span><span>Haskell</span><span>Dart</span><span>PHP</span>
-    <span>Java</span><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Flask</span><span>RAG pipelines</span><span>ChromaDB</span><span>Ollama</span><span>SQLite</span><span>Haskell</span><span>Dart</span><span>PHP</span>
-  </div>
-</div>
-
 <section id="live">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-title"><span class="sec-num">01</span><h2>Live demos</h2></div>
-    </div>
-    <p class="sec-sub">Deployed on GitHub Pages — click <b>Open demo</b> and they run in your browser. No install, no setup.</p>
+    <span class="sec-kick rv">Deployed &amp; running</span>
+    <h2 class="rv">Live demos</h2>
+    <p class="sec-sub rv">Real screenshots, real deployments on GitHub Pages. Hit <b>Live demo</b> and they open instantly in your browser.</p>
     <div class="demo-grid">
 
-      <article class="demo-card">
-        <div class="demo-top"><span class="demo-num">№ 01</span><span class="live-pill"><span class="dot"></span>Live</span></div>
-        <h3>CodeCore</h3>
-        <p>Multi-page website for CodeCore, UTEP's student coding organization — mobile-first, CSS Grid layouts, flip-card animations, and integrated sign-up forms.</p>
-        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
-        <div class="demo-actions">
-          <a class="mini mini-solid" href="https://enrique182004.github.io/CodeCore/" target="_blank" rel="noopener">Open demo ↗</a>
-          <a class="mini mini-line" href="https://github.com/Enrique182004/CodeCore" target="_blank" rel="noopener">Code</a>
+      <article class="dcard rv">
+        <div class="thumb"><span class="live-tag"><span class="dot"></span>Live</span><img src="assets/codecore.jpg" alt="CodeCore website screenshot" loading="lazy" /></div>
+        <div class="dbody">
+          <h3>CodeCore</h3>
+          <p>Multi-page website for UTEP's student coding org — mobile-first, CSS Grid, flip-card animations, and sign-up forms.</p>
+          <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+          <div class="dacts">
+            <a class="mini mini-grad" href="https://enrique182004.github.io/CodeCore/" target="_blank" rel="noopener">Live demo ↗</a>
+            <a class="mini mini-line" href="https://github.com/Enrique182004/CodeCore" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
       </article>
 
-      <article class="demo-card">
-        <div class="demo-top"><span class="demo-num">№ 02</span><span class="live-pill"><span class="dot"></span>Live</span></div>
-        <h3>Stock Market Viewer</h3>
-        <p>Real-time stock market data viewer with interactive charts, built in vanilla JavaScript.</p>
-        <div class="chips"><span class="chip">JavaScript</span><span class="chip">Charts</span><span class="chip">APIs</span></div>
-        <div class="demo-actions">
-          <a class="mini mini-solid" href="https://enrique182004.github.io/stock-market-viewer/" target="_blank" rel="noopener">Open demo ↗</a>
-          <a class="mini mini-line" href="https://github.com/Enrique182004/stock-market-viewer" target="_blank" rel="noopener">Code</a>
+      <article class="dcard rv">
+        <div class="thumb"><span class="live-tag"><span class="dot"></span>Live</span><img src="assets/stocks.jpg" alt="Stock Market Viewer screenshot" loading="lazy" /></div>
+        <div class="dbody">
+          <h3>Stock Market Viewer</h3>
+          <p>Real-time stock market data viewer with interactive charts, built in vanilla JavaScript.</p>
+          <div class="chips"><span class="chip">JavaScript</span><span class="chip">Charts</span><span class="chip">APIs</span></div>
+          <div class="dacts">
+            <a class="mini mini-grad" href="https://enrique182004.github.io/stock-market-viewer/" target="_blank" rel="noopener">Live demo ↗</a>
+            <a class="mini mini-line" href="https://github.com/Enrique182004/stock-market-viewer" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
       </article>
 
-      <article class="demo-card">
-        <div class="demo-top"><span class="demo-num">№ 03</span><span class="live-pill"><span class="dot"></span>Live</span></div>
-        <h3>Match Game</h3>
-        <p>Browser memory match game — flip the cards, find the pairs, beat your best score.</p>
-        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
-        <div class="demo-actions">
-          <a class="mini mini-solid" href="https://enrique182004.github.io/matchGame/" target="_blank" rel="noopener">Open demo ↗</a>
-          <a class="mini mini-line" href="https://github.com/Enrique182004/matchGame" target="_blank" rel="noopener">Code</a>
+      <article class="dcard rv">
+        <div class="thumb"><span class="live-tag"><span class="dot"></span>Live</span><img src="assets/matchgame.jpg" alt="Match Game screenshot" loading="lazy" /></div>
+        <div class="dbody">
+          <h3>Match Game</h3>
+          <p>Browser memory match game — flip the cards, find the pairs, beat your best score.</p>
+          <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+          <div class="dacts">
+            <a class="mini mini-grad" href="https://enrique182004.github.io/matchGame/" target="_blank" rel="noopener">Live demo ↗</a>
+            <a class="mini mini-line" href="https://github.com/Enrique182004/matchGame" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
       </article>
 
-      <article class="demo-card">
-        <div class="demo-top"><span class="demo-num">№ 04</span><span class="live-pill"><span class="dot"></span>Live</span></div>
-        <h3>Chiquis Café</h3>
-        <p>Landing page for a local café — menu, story, and contact sections with a warm visual identity.</p>
-        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span></div>
-        <div class="demo-actions">
-          <a class="mini mini-solid" href="https://enrique182004.github.io/ChiquisCafe/" target="_blank" rel="noopener">Open demo ↗</a>
-          <a class="mini mini-line" href="https://github.com/Enrique182004/ChiquisCafe" target="_blank" rel="noopener">Code</a>
+      <article class="dcard rv">
+        <div class="thumb"><span class="live-tag"><span class="dot"></span>Live</span><img src="assets/chiquis.jpg" alt="Chiquis Café screenshot" loading="lazy" /></div>
+        <div class="dbody">
+          <h3>Chiquis Café</h3>
+          <p>Landing page for a local café — menu, story, and contact with a warm visual identity.</p>
+          <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span></div>
+          <div class="dacts">
+            <a class="mini mini-grad" href="https://enrique182004.github.io/ChiquisCafe/" target="_blank" rel="noopener">Live demo ↗</a>
+            <a class="mini mini-line" href="https://github.com/Enrique182004/ChiquisCafe" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
       </article>
 
-      <article class="demo-card">
-        <div class="demo-top"><span class="demo-num">№ 05</span><span class="live-pill"><span class="dot"></span>Live</span></div>
-        <h3>Café de Olla — B2B</h3>
-        <p>Business-to-business landing page for the Café de Olla partnership program.</p>
-        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span></div>
-        <div class="demo-actions">
-          <a class="mini mini-solid" href="https://enrique182004.github.io/Bring-Cafe-De-Olla-to-Your-Business/" target="_blank" rel="noopener">Open demo ↗</a>
-          <a class="mini mini-line" href="https://github.com/Enrique182004/Bring-Cafe-De-Olla-to-Your-Business" target="_blank" rel="noopener">Code</a>
+      <article class="dcard rv">
+        <div class="thumb"><span class="live-tag"><span class="dot"></span>Live</span><img src="assets/cafedeolla.jpg" alt="Café de Olla B2B page screenshot" loading="lazy" /></div>
+        <div class="dbody">
+          <h3>Café de Olla — B2B</h3>
+          <p>Business partnership landing page for the Café de Olla program.</p>
+          <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span></div>
+          <div class="dacts">
+            <a class="mini mini-grad" href="https://enrique182004.github.io/Bring-Cafe-De-Olla-to-Your-Business/" target="_blank" rel="noopener">Live demo ↗</a>
+            <a class="mini mini-line" href="https://github.com/Enrique182004/Bring-Cafe-De-Olla-to-Your-Business" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
       </article>
 
-      <article class="demo-card">
-        <div class="demo-top"><span class="demo-num">№ 06</span><span class="live-pill"><span class="dot"></span>Live</span></div>
-        <h3>Valentines Card</h3>
-        <p>Interactive Valentine's Day greeting card driven entirely by CSS animations.</p>
-        <div class="chips"><span class="chip">CSS</span><span class="chip">Animations</span></div>
-        <div class="demo-actions">
-          <a class="mini mini-solid" href="https://enrique182004.github.io/valentines/" target="_blank" rel="noopener">Open demo ↗</a>
-          <a class="mini mini-line" href="https://github.com/Enrique182004/valentines" target="_blank" rel="noopener">Code</a>
+      <article class="dcard rv">
+        <div class="thumb"><span class="live-tag"><span class="dot"></span>Live</span><img src="assets/valentines.jpg" alt="Valentines card screenshot" loading="lazy" /></div>
+        <div class="dbody">
+          <h3>Valentines Card</h3>
+          <p>Interactive Valentine's Day greeting card driven entirely by CSS animations.</p>
+          <div class="chips"><span class="chip">CSS</span><span class="chip">Animations</span></div>
+          <div class="dacts">
+            <a class="mini mini-grad" href="https://enrique182004.github.io/valentines/" target="_blank" rel="noopener">Live demo ↗</a>
+            <a class="mini mini-line" href="https://github.com/Enrique182004/valentines" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
       </article>
 
-      <article class="demo-card">
-        <div class="demo-top"><span class="demo-num">№ 07</span><span class="live-pill"><span class="dot"></span>Live</span></div>
-        <h3>EPE Patching</h3>
-        <p>Automated patch management and deployment scripts in Python, with a published docs page.</p>
-        <div class="chips"><span class="chip">Python</span><span class="chip">Automation</span></div>
-        <div class="demo-actions">
-          <a class="mini mini-solid" href="https://enrique182004.github.io/EPE-Patching/" target="_blank" rel="noopener">Open demo ↗</a>
-          <a class="mini mini-line" href="https://github.com/Enrique182004/EPE-Patching" target="_blank" rel="noopener">Code</a>
+      <article class="dcard rv">
+        <div class="thumb"><span class="live-tag"><span class="dot"></span>Live</span><img src="assets/epe.jpg" alt="EPE Patching screenshot" loading="lazy" /></div>
+        <div class="dbody">
+          <h3>EPE Patch Predictor</h3>
+          <p>Automated patch management and deployment tooling in Python, with a live predictor page.</p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Automation</span></div>
+          <div class="dacts">
+            <a class="mini mini-grad" href="https://enrique182004.github.io/EPE-Patching/" target="_blank" rel="noopener">Live demo ↗</a>
+            <a class="mini mini-line" href="https://github.com/Enrique182004/EPE-Patching" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
       </article>
 
@@ -336,123 +362,140 @@ footer{background:var(--ink);color:var(--paper);padding:clamp(3rem,8vh,5rem) 0 2
   </div>
 </section>
 
-<section id="work">
+<section id="projects">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-title"><span class="sec-num">02</span><h2>Selected projects</h2></div>
-    </div>
-    <p class="sec-sub">Bigger builds that live in the repo — full-stack systems, AI pipelines, and the same game written in three languages, on purpose.</p>
+    <span class="sec-kick rv">Open source</span>
+    <h2 class="rv">More projects</h2>
+    <p class="sec-sub rv">Bigger builds that live in the repo — full-stack systems, AI pipelines, and the same game written in three languages, on purpose.</p>
+    <div class="pgrid">
 
-    <div class="work-list">
-      <a class="work-row" href="https://github.com/Enrique182004/rag-app" target="_blank" rel="noopener">
-        <span class="work-name">RAG App</span>
-        <span class="work-desc">Local-first RAG chat — ingest PDF, DOCX, CSV, or URLs and chat across documents. ChromaDB + Ollama with hybrid reranking, fully offline.</span>
-        <span class="work-tech">JS · Ollama · ChromaDB</span>
-        <span class="work-arr">→</span>
-      </a>
-      <a class="work-row" href="https://github.com/Enrique182004/Restaurant-POS" target="_blank" rel="noopener">
-        <span class="work-name">Restaurant POS</span>
-        <span class="work-desc">Full-stack restaurant management system — orders, menu, and operations.</span>
-        <span class="work-tech">Python · Flask · SQLite</span>
-        <span class="work-arr">→</span>
-      </a>
-      <a class="work-row" href="https://github.com/Enrique182004/pdf-qa" target="_blank" rel="noopener">
-        <span class="work-name">PDF Q&amp;A</span>
-        <span class="work-desc">Ask questions of any PDF — OpenAI embeddings with a GPT-4o-mini RAG pipeline.</span>
-        <span class="work-tech">Python · OpenAI</span>
-        <span class="work-arr">→</span>
-      </a>
-      <a class="work-row" href="https://github.com/Enrique182004/ChessGame" target="_blank" rel="noopener">
-        <span class="work-name">Chess Game</span>
-        <span class="work-desc">Complete Java chess with a Swing GUI — full move validation and a comprehensive JUnit test suite.</span>
-        <span class="work-tech">Java · Swing · JUnit</span>
-        <span class="work-arr">→</span>
-      </a>
-      <a class="work-row" href="https://github.com/Enrique182004/todo-app" target="_blank" rel="noopener">
-        <span class="work-name">Todo App</span>
-        <span class="work-desc">React + TypeScript + Vite — task filtering, priorities, and localStorage persistence.</span>
-        <span class="work-tech">React · TS · Vite</span>
-        <span class="work-arr">→</span>
-      </a>
-      <a class="work-row" href="https://github.com/Enrique182004/EPC-CP" target="_blank" rel="noopener">
-        <span class="work-name">EPC-CP</span>
-        <span class="work-desc">Event-driven client–server protocol implementation.</span>
-        <span class="work-tech">JavaScript</span>
-        <span class="work-arr">→</span>
-      </a>
-      <div class="work-row" style="cursor:default">
-        <span class="work-name">Connect 4 — ×3</span>
-        <span class="work-desc">The same game in three paradigms: pure-functional Haskell, a Dart CLI client with AI opponents, and a PHP web server with Smart &amp; Random AI.
-          <span class="work-links" style="margin-top:.4rem;display:flex">
-            <a href="https://github.com/Enrique182004/Connect4-Haskell" target="_blank" rel="noopener">Haskell</a>
-            <a href="https://github.com/Enrique182004/Connect4-Dart-Client" target="_blank" rel="noopener">Dart</a>
-            <a href="https://github.com/Enrique182004/Connect4-PHP-Server" target="_blank" rel="noopener">PHP</a>
-          </span>
-        </span>
-        <span class="work-tech">Haskell · Dart · PHP</span>
-        <span class="work-arr"></span>
-      </div>
-      <a class="work-row" href="https://github.com/Enrique182004/kitchen-companion" target="_blank" rel="noopener">
-        <span class="work-name">Kitchen Companion</span>
-        <span class="work-desc">Kitchen companion app built in TypeScript.</span>
-        <span class="work-tech">TypeScript</span>
-        <span class="work-arr">→</span>
-      </a>
+      <article class="pcard rv">
+        <div class="picon">🤖</div>
+        <h3>RAG App</h3>
+        <p>Local-first RAG chat — ingest PDF, DOCX, CSV, or URLs and chat across documents. ChromaDB + Ollama with hybrid reranking, fully offline.</p>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">Ollama</span><span class="chip">ChromaDB</span></div>
+        <div class="plinks"><a href="https://github.com/Enrique182004/rag-app" target="_blank" rel="noopener">View code →</a></div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="picon">🍽️</div>
+        <h3>Restaurant POS</h3>
+        <p>Full-stack restaurant management system — orders, menu, and operations built with Flask and SQLite.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">SQLite</span></div>
+        <div class="plinks"><a href="https://github.com/Enrique182004/Restaurant-POS" target="_blank" rel="noopener">View code →</a></div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="picon">📄</div>
+        <h3>PDF Q&amp;A</h3>
+        <p>Ask questions of any PDF — OpenAI embeddings with a GPT-4o-mini RAG pipeline.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">OpenAI</span></div>
+        <div class="plinks"><a href="https://github.com/Enrique182004/pdf-qa" target="_blank" rel="noopener">View code →</a></div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="picon">♟️</div>
+        <h3>Chess Game</h3>
+        <p>Complete Java chess with a Swing GUI — full move validation and a comprehensive JUnit test suite.</p>
+        <div class="chips"><span class="chip">Java</span><span class="chip">Swing</span><span class="chip">JUnit</span></div>
+        <div class="plinks"><a href="https://github.com/Enrique182004/ChessGame" target="_blank" rel="noopener">View code →</a></div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="picon">🎮</div>
+        <h3>Connect 4 — ×3</h3>
+        <p>The same game in three paradigms: pure-functional Haskell, a Dart CLI client with AI opponents, and a PHP server with Smart &amp; Random AI.</p>
+        <div class="chips"><span class="chip">Haskell</span><span class="chip">Dart</span><span class="chip">PHP</span></div>
+        <div class="plinks">
+          <a href="https://github.com/Enrique182004/Connect4-Haskell" target="_blank" rel="noopener">Haskell</a>
+          <a href="https://github.com/Enrique182004/Connect4-Dart-Client" target="_blank" rel="noopener">Dart</a>
+          <a href="https://github.com/Enrique182004/Connect4-PHP-Server" target="_blank" rel="noopener">PHP</a>
+        </div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="picon">✅</div>
+        <h3>Todo App</h3>
+        <p>React + TypeScript + Vite — task filtering, priorities, and localStorage persistence.</p>
+        <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Vite</span></div>
+        <div class="plinks"><a href="https://github.com/Enrique182004/todo-app" target="_blank" rel="noopener">View code →</a></div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="picon">🔌</div>
+        <h3>EPC-CP</h3>
+        <p>Event-driven client–server protocol implementation in JavaScript.</p>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">Networking</span></div>
+        <div class="plinks"><a href="https://github.com/Enrique182004/EPC-CP" target="_blank" rel="noopener">View code →</a></div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="picon">🍳</div>
+        <h3>Kitchen Companion</h3>
+        <p>Kitchen companion app built in TypeScript.</p>
+        <div class="chips"><span class="chip">TypeScript</span></div>
+        <div class="plinks"><a href="https://github.com/Enrique182004/kitchen-companion" target="_blank" rel="noopener">View code →</a></div>
+      </article>
+
     </div>
   </div>
 </section>
 
 <section id="skills">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-title"><span class="sec-num">03</span><h2>Skills</h2></div>
-    </div>
-    <p class="sec-sub">Tools I reach for, grouped by what I'm building.</p>
-    <div class="skill-cols">
-      <div class="skill-col">
+    <span class="sec-kick rv">Toolbox</span>
+    <h2 class="rv">Skills &amp; technologies</h2>
+    <p class="sec-sub rv">What I reach for, grouped by what I'm building.</p>
+    <div class="skill-wrap">
+      <div class="srow rv">
         <h3>Languages</h3>
-        <ul><li>Java</li><li>Python</li><li>JavaScript / TypeScript</li><li>Haskell · Dart · PHP</li><li>HTML · CSS · SQL</li></ul>
+        <div class="spills"><span class="spill">Java</span><span class="spill">Python</span><span class="spill">JavaScript</span><span class="spill">TypeScript</span><span class="spill">Haskell</span><span class="spill">Dart</span><span class="spill">PHP</span><span class="spill">SQL</span><span class="spill">HTML/CSS</span></div>
       </div>
-      <div class="skill-col">
+      <div class="srow rv">
         <h3>Web &amp; Backend</h3>
-        <ul><li>React · Vite</li><li>Flask</li><li>Node.js</li><li>SQLite</li><li>REST APIs</li></ul>
+        <div class="spills"><span class="spill">React</span><span class="spill">Vite</span><span class="spill">Flask</span><span class="spill">Node.js</span><span class="spill">SQLite</span><span class="spill">REST APIs</span></div>
       </div>
-      <div class="skill-col">
+      <div class="srow rv">
         <h3>AI / ML</h3>
-        <ul><li>RAG pipelines</li><li>ChromaDB · vector search</li><li>Ollama — local LLMs</li><li>OpenAI embeddings</li><li>Hybrid reranking</li></ul>
+        <div class="spills"><span class="spill">RAG pipelines</span><span class="spill">ChromaDB</span><span class="spill">Vector search</span><span class="spill">Ollama</span><span class="spill">OpenAI embeddings</span><span class="spill">Hybrid reranking</span></div>
       </div>
-      <div class="skill-col">
+      <div class="srow rv">
         <h3>Practices</h3>
-        <ul><li>Git &amp; GitHub</li><li>JUnit testing</li><li>Responsive design</li><li>GitHub Pages deploys</li><li>Community leadership</li></ul>
+        <div class="spills"><span class="spill">Git &amp; GitHub</span><span class="spill">JUnit testing</span><span class="spill">Responsive design</span><span class="spill">GitHub Pages</span><span class="spill">Community leadership</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="about">
-  <div class="wrap about-grid">
-    <p class="about-note">"Learn by shipping. Every project here is something I actually built, deployed, and iterated on."</p>
-    <div class="about-body">
-      <p>I'm <strong>Enrique Calleros</strong>, a Computer Science student at <strong>The University of Texas at El Paso</strong>. My work runs from café landing pages to local-first AI: lately I've been deep in <strong>RAG pipelines</strong> — vector search, embeddings, and chat over documents that runs entirely offline.</p>
-      <p>Outside of class I build and maintain the website for <a href="https://enrique182004.github.io/CodeCore/" target="_blank" rel="noopener">CodeCore</a>, UTEP's student coding community — supporting events, workshops, and hackathons like FirstHack.</p>
-      <p>Want to work together or just talk code? <a href="mailto:ecalleros4@miners.utep.edu">Email me</a> or find me on <a href="https://github.com/Enrique182004" target="_blank" rel="noopener">GitHub</a>.</p>
+  <div class="wrap">
+    <div class="about-card rv">
+      <div class="avatar">EC</div>
+      <div class="about-body">
+        <p>I'm <b>Enrique Calleros</b>, a Computer Science student at <b>The University of Texas at El Paso</b>. My work runs from café landing pages to local-first AI — lately I've been deep in <b>RAG pipelines</b>: vector search, embeddings, and document chat that runs fully offline.</p>
+        <p>Outside of class I build and maintain the website for <a href="https://enrique182004.github.io/CodeCore/" target="_blank" rel="noopener">CodeCore</a>, UTEP's student coding community — supporting events, workshops, and hackathons like FirstHack. <b>Learn by shipping</b> is the whole philosophy: everything on this page is deployed, not theoretical.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p class="foot-cta">Have an idea worth building? <em>Let's talk.</em></p>
-    <a class="email-big" href="mailto:ecalleros4@miners.utep.edu">ecalleros4@miners.utep.edu</a>
-    <div class="foot-row">
-      <div class="foot-links">
+    <p class="f-title">Have an idea worth building? <span class="grad">Let's talk.</span></p>
+    <a class="f-mail" href="mailto:ecalleros4@miners.utep.edu">ecalleros4@miners.utep.edu ↗</a>
+    <div class="f-row">
+      <span>© 2026 Enrique Calleros</span>
+      <span>
         <a href="https://github.com/Enrique182004" target="_blank" rel="noopener">GitHub</a>
         <a href="#top">Back to top ↑</a>
-      </div>
-      <p class="foot-note">© 2026 Enrique Calleros — handcrafted HTML &amp; CSS, no framework.</p>
+      </span>
     </div>
   </div>
 </footer>
 
+<script>
+const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }), {threshold: .12});
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
